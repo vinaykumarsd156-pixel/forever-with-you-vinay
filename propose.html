@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Forever With You 💖💍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+/* ===== BODY ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at top, #ff9a9e, #fad0c4); /* Pink gradient */
+  min-height: 100vh;
+  transition: background 1.5s ease;
+}
+
+/* ===== STAR BACKGROUND ===== */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite;
+  filter: drop-shadow(0 0 1.5px white);
+  will-change: opacity;
+  z-index: 0;
+}
+@keyframes twinkle {
+  0%, 100% {opacity: 0.2;}
+  50% {opacity: 1;}
+}
+
+/* ===== FULL MOON ===== */
+#moon {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  transform: none;
+  width: 150px;
+  height: 150px;
+  background-color: #f0f0f0;
+  background-image: radial-gradient(circle, #ffffff, #333333);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(255,255,255,0.4);
+  opacity: 0;
+  transition: opacity 2s ease;
+  z-index: 1;
+}
+
+/* ===== MOVING CLOUDS ===== */
+.cloud {
+  position: fixed;
+  top: 0;
+  width: 200px;
+  height: 100px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.6), rgba(255,255,255,0));
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: floatClouds linear infinite;
+  z-index: 0;
+}
+
+@keyframes floatClouds {
+  0% {transform: translateX(-250px);}
+  100% {transform: translateX(110vw);}
+}
+
+/* ===== OPENING SCREEN ===== */
+#lock {
+  position: fixed;
+  inset: 0;
+  background-image: url('WhatsApp Image 2026-02-08 at 3.25.49 PM.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  transition: opacity 0.5s ease;
+}
+#lock::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,182,193,0.3);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+.welcome {
+  position: relative;
+  z-index: 10001;
+  background: rgba(255,255,255,0.2);
+  padding: 50px;
+  border-radius: 35px;
+  box-shadow: 0 0 50px rgba(255,182,193,0.9);
+  animation: fadeIn 2s ease;
+  backdrop-filter: blur(10px);
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+/* ===== HEART GLOW ===== */
+.glow-heart {
+  font-size: 80px;
+  animation: heartbeat 1.5s infinite;
+  text-shadow: 0 0 20px #fff, 0 0 30px #ff4f7a;
+}
+@keyframes heartbeat {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.3);}
+  100% {transform: scale(1);}
+}
+.welcome h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 65px;
+  margin: 15px 0;
+  text-shadow: 0 0 20px #fff, 0 0 30px #ff4f7a;
+}
+.welcome p {
+  font-size: 18px;
+  margin: 15px 0;
+  opacity: 0.95;
+}
+.welcome input {
+  margin-top: 20px;
+  padding: 14px;
+  width: 80%;
+  border-radius: 30px;
+  border: none;
+  text-align: center;
+}
+.welcome button {
+  margin-top: 25px;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 30px;
+  background: #fff;
+  color: #ff4f7a;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 0 25px #fff;
+  transition: transform 0.3s;
+}
+.welcome button:hover {transform: scale(1.1);}
+
+/* ===== FALLING PETALS ===== */
+.petals {
+  position: fixed;
+  top: -50px;
+  font-size: 28px;
+  animation: fall linear forwards;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0) rotate(0deg);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  filter: drop-shadow(0 0 6px white);
+}
+@keyframes fall {
+  0% {transform: translateY(-10vh) scale(0) rotate(0deg); opacity: 0;}
+  10% {opacity: 1; transform: translateY(0) scale(1) rotate(15deg);}
+  100% {transform: translateY(110vh) scale(1) rotate(360deg);}
+}
+
+/* ===== MAIN SECTIONS ===== */
+section {
+  padding: 80px 20px;
+  position: relative;
+  z-index: 10;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff4f7a;
+}
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 0 35px rgba(255, 182, 193, 0.6);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 2s ease;
+}
+
+/* ===== SLIDESHOW ===== */
+.slideshow {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 25px;
+}
+.slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+.slideshow img.active {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ===== RING ===== */
+.ring {
+  font-size: 100px;
+  animation: ringGlow 2s infinite;
+  text-shadow: 0 0 15px #fff, 0 0 25px gold;
+}
+@keyframes ringGlow {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.2);}
+  100% {transform: scale(1);}
+}
+
+/* ===== BUTTONS ===== */
+.buttons {
+  position: relative;
+  height: 180px;
+}
+#yes {
+  background: #fff;
+  color: #ff4f7a;
+  box-shadow: 0 0 25px #fff;
+  transition: transform 0.3s;
+}
+#yes:hover {transform: scale(1.1);}
+#no {
+  position: absolute;
+  background: #ff4f7a;
+  color: white;
+  left: 60%;
+  top: 0;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+/* ===== CONFETTI & FIREWORKS ===== */
+.confetti, .firework {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: gold;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.8;
+}
+.floatText {
+  position: fixed;
+  color: #ff4f7a;
+  font-size: 20px;
+  font-family: 'Great Vibes', cursive;
+  opacity: 0.9;
+  animation: floatUp 4s linear forwards;
+}
+@keyframes floatUp {
+  0% {transform: translateY(0) scale(1);}
+  100% {transform: translateY(-300px) scale(1.5); opacity: 0;}
+}
+
+/* ===== QUOTE AT BOTTOM ===== */
+/* ===== QUOTE AT BOTTOM ===== */
+#quote {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  color: #000000; /* Black color */
+  text-shadow: 0 0 5px #fff; /* subtle glow for readability */
+  z-index: 9999;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+#quote.visible {
+  opacity: 1;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- STARS -->
+<script>
+for (let i = 0; i < 150; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.left = Math.random() * 100 + 'vw';
+  star.style.top = Math.random() * 100 + 'vh';
+  const size = 1 + Math.random() * 2;
+  star.style.width = size + 'px';
+  star.style.height = size + 'px';
+  star.style.animationDuration = 1.5 + Math.random() * 1.5 + 's';
+  document.body.appendChild(star);
+}
+</script>
+
+<!-- CLOUDS -->
+<div class="cloud" style="top:50px; animation-duration:60s; width:250px; height:120px;"></div>
+<div class="cloud" style="top:150px; animation-duration:80s; width:180px; height:90px;"></div>
+<div class="cloud" style="top:250px; animation-duration:100s; width:220px; height:100px;"></div>
+
+<!-- MOON -->
+<div id="moon"></div>
+
+<!-- OPENING -->
+<div id="lock">
+  <div class="welcome">
+    <div class="glow-heart">💖</div>
+    <h1>Forever With You</h1>
+    <p>Every love story is beautiful,<br>but ours is my favorite.</p>
+    <input type="password" id="pass" placeholder="Enter our secret" />
+    <br />
+    <button onclick="unlock()">Enter My Heart 💕</button>
+  </div>
+</div>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg" />
+</audio>
+
+<!-- MAIN CONTENT -->
+<section>
+  <h1>My Forever 🌹</h1>
+  <p>You are the reason my heart smiles every day.</p>
+</section>
+
+<section class="card">
+  <h2>Our Memories</h2>
+  <div class="slideshow" id="slideshow"></div>
+</section>
+
+<section class="card">
+  <h2>From My Heart</h2>
+  <p>
+  Youre so unique, unlike anyone Ive ever met,<br>
+and it takes time to fully understand you—<br>
+but every moment talking to you feels effortless.<br><br>
+
+Youre like family to me,<br>
+someone I could spend my whole life with.<br><br>
+
+Every way you show love, friendship, care, and responsibility<br>
+makes me feel truly blossomed<br>
+when you genuinely put in your effort.
+  </p>
+</section>
+
+<section class="card">
+  <div class="ring">💍</div>
+  <h1>HAPPY PROPOSE DAY 💕</h1>
+  <div class="buttons">
+    <button id="yes" onclick="yes()">YES 💕</button>
+    <button id="no">NO 💔</button>
+  </div>
+</section>
+
+<!-- Quote at bottom -->
+<div id="quote">The background — the pink sky with a moon, which means you. 💖</div>
+
+<script>
+// ===== FALLING PETALS =====
+function createPetal(type='💜') {
+  const p = document.createElement('div');
+  p.className='petals';
+  p.innerHTML=type;
+  p.style.left=Math.random()*100+'vw';
+  p.style.fontSize=20+Math.random()*25+'px';
+  p.style.animationDuration=5+Math.random()*5+'s';
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),10000);
+
+  for(let i=0;i<3;i++){
+    const spark=document.createElement('div');
+    spark.className='confetti';
+    spark.style.width=spark.style.height='4px';
+    spark.style.background='pink';
+    spark.style.left=(parseFloat(p.style.left)+Math.random()*20-10)+'vw';
+    spark.style.top=Math.random()*10+'vh';
+    document.body.appendChild(spark);
+    setTimeout(()=>spark.remove(),2000);
+  }
+}
+
+// ===== SLIDESHOW AUTOMATIC =====
+const imageFiles=[
+  'WhatsApp Image 2026-02-08 at 3.28.32 PM.jpeg',
+  'WhatsApp Image 2026-02-08 at 3.29.21 PM.jpeg',
+  'WhatsApp Image 2026-02-08 at 4.40.14 PM.jpeg',
+];
+const slideshowDiv=document.getElementById('slideshow');
+imageFiles.forEach((src,index)=>{
+  const img=document.createElement('img');
+  img.src=src;
+  if(index===0) img.classList.add('active');
+  slideshowDiv.appendChild(img);
+});
+
+// ===== OPENING UNLOCK =====
+function unlock(){
+  const pass=document.getElementById('pass');
+  const lock=document.getElementById('lock');
+  const music=document.getElementById('music');
+  const quote=document.getElementById('quote');
+  const moon=document.getElementById('moon');
+
+  if(pass.value==='rahi'){
+    lock.style.opacity=0;
+    setTimeout(()=>{lock.style.display='none';},500);
+    music.play();
+    moon.style.opacity=1;
+    quote.classList.add('visible');
+    setInterval(()=>createPetal('🌹'),300);
+
+    // Slideshow
+    const slides=document.querySelectorAll('#slideshow img');
+    let current=0;
+    setInterval(()=>{
+      slides[current].classList.remove('active');
+      current=(current+1)%slides.length;
+      slides[current].classList.add('active');
+    },3000);
+  } else {
+    alert('You have entered the wrong heart 💔');
+    pass.value='';
+  }
+}
+
+// ===== YES BUTTON =====
+function yes(){
+  alert('Yay! 💕 You said YES!');
+
+  for(let i=0;i<10;i++){
+    const txt=document.createElement('div');
+    txt.className='floatText';
+    txt.innerHTML='💖';
+    txt.style.left=10+Math.random()*80+'vw';
+    txt.style.top=70+Math.random()*20+'vh';
+    document.body.appendChild(txt);
+    setTimeout(()=>txt.remove(),4000);
+  }
+
+  for(let i=0;i<50;i++){
+    const f=document.createElement('div');
+    f.className='firework';
+    f.style.left=Math.random()*100+'vw';
+    f.style.top=Math.random()*50+'vh';
+    f.style.width=f.style.height=5+Math.random()*10+'px';
+    f.style.background=['gold','pink','white','yellow'][Math.floor(Math.random()*4)];
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),3000);
+  }
+}
+
+// ===== NO BUTTON DODGE =====
+const noBtn=document.getElementById('no');
+noBtn.addEventListener('mouseenter',()=>{
+  const x=Math.random()*70;
+  const y=Math.random()*50;
+  noBtn.style.left=x+'%';
+  noBtn.style.top=y+'px';
+});
+
+// ===== FLOATING SPARKLES =====
+setInterval(()=>{
+  const sparkle=document.createElement('div');
+  sparkle.className='petals';
+  sparkle.innerHTML='✨';
+  sparkle.style.left=Math.random()*100+'vw';
+  sparkle.style.top=Math.random()*100+'vh';
+  sparkle.style.fontSize=10+Math.random()*15+'px';
+  sparkle.style.animationDuration=5+Math.random()*5+'s';
+  document.body.appendChild(sparkle);
+  setTimeout(()=>sparkle.remove(),7000);
+},500);
+</script>
+</body>
+</html>
